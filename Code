@@ -1,0 +1,40 @@
+queue = [" "]* 10
+numitems = 0
+tailp = 0
+headp = 0
+def enqueue(item):
+    global numitems
+    global tailp
+    if(numitems > 10):
+        print("Queue is full")
+    else:
+        queue[tailp] = item
+        tailp = tailp + 1
+        if(tailp > 10):
+            tailp = 1
+    numitems = numitems + 1
+
+enqueue("abc")
+enqueue("deg")
+enqueue("xyz")
+print(queue)
+
+def dequeue(item):
+    global numitems
+    global headp
+    if(numitems == 0):
+        print("Queue is empty")
+    else:
+        item = queue[headp]
+        queue[headp] = " "
+        headp = headp + 1
+        if(headp > 10):
+            headp = 1
+    numitems = numitems - 1 
+    return(item)
+    
+dequeue(" ")
+dequeue(" ")
+dequeue(" ")
+dequeue(" ")
+print(queue)
